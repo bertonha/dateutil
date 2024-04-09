@@ -1,9 +1,5 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from datetime import datetime, date
 import unittest
-from six import PY2
 
 from dateutil import tz
 from dateutil.rrule import (
@@ -2342,7 +2338,6 @@ class RRuleTest(unittest.TestCase):
         raise a :exception:`ValueError`.
         """
 
-        # In Python 2.7 you can use a context manager for this.
         def make_bad_rrule():
             list(rrule(MINUTELY, interval=120, byhour=(10, 12, 14, 16),
                  count=2, dtstart=datetime(1997, 9, 2, 9, 0)))
@@ -2354,7 +2349,6 @@ class RRuleTest(unittest.TestCase):
         See :func:`testMinutelyBadComboRRule' for details.
         """
 
-        # In Python 2.7 you can use a context manager for this.
         def make_bad_minute_rrule():
             list(rrule(SECONDLY, interval=360, byminute=(10, 28, 49),
                  count=4, dtstart=datetime(1997, 9, 2, 9, 0)))
